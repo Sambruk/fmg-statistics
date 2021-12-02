@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>FixaMinGata-statistik för</title>
+    <script src="Chart.bundle.min.js"></script>
+    <script src="entries.js"></script>
+    <script src="promise.min.js"></script>
+    <script src="fetch.js"></script>
+    <script src="moment.min.js"></script>
+    <script src="url-polyfill.min.js"></script>
+    <script src="objectassign-polyfill.js"></script>
+    <script src="littleolaph.js"></script>
+    <script src="script.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css">
+  </head>
+  <body>
+    <div id='main-container'>
+      <a href="/"><img src="site-logo.svg" id="site-logo"/></a>
+      <img id='spinner' src="spinner.gif"/>
+      <h1>Statistik för <span class="body-name"></span></h1>
+      <div class='monthly-section section'>
+	<h2>Månadsvy</h2>
+	<div id='month-text' class='print-only'>
+	</div>
+	<hr class='print-only'/>
+	<form class='screen-only'>
+	  År:
+	  <select name="year" id='year-selection' onchange="newSelection()">
+	  </select>
+	  Månad:
+	  <select name="month" id='month-selection' onchange="newSelection()">
+	    <option value="0">Januari</option>
+	    <option value="1">Februari</option>
+	    <option value="2">Mars</option>
+	    <option value="3">April</option>
+	    <option value="4">Maj</option>
+	    <option value="5">Juni</option>
+	    <option value="6">Juli</option>
+	    <option value="7">Augusti</option>
+	    <option value="8">September</option>
+	    <option value="9">Oktober</option>
+	    <option value="10">November</option>
+	    <option value="11">December</option>
+	  </select>
+	</form>
+	<div class='chart-plus'>
+	  <h3>Status på rapporter som inkom under månaden per kategori</h3>
+	  <canvas class='chart' id='status-chart'></canvas>
+	</div>
+	<div class='chart-plus'>
+	  <h3>Dagar, i genomsnitt, till kommunsvar på rapporter som inkom under månaden, per kategori</h3>
+	  <canvas class='chart' id='replies-average-chart'></canvas>
+	</div>
+	<div class='chart-plus'>
+	  <h3>Antal rapporter utan kommunsvar som inkom under månaden, per kategori</h3>
+	  <canvas class='chart' id='no-replies-chart'></canvas>
+	</div>
+	<div class='chart-plus'>
+	  <h3>Dagar, i genomsnitt, till lösta rapporter stängdes</h3>
+	  <canvas class='chart' id='average-close-time-chart'></canvas>
+	</div>
+	<div class='chart-plus'>
+	<h3>Antal rapporter för alla kommuner</h3>
+	<canvas class='chart' id='body-count-chart'></canvas>
+	</div>
+      </div>
+
+      <div class='open-section section'>
+	<h2>Öppna rapporter</h2>
+	<hr class='print-only'/>
+	<div class='chart-plus'>
+	  <h3>Antal öppna</h3>
+	  <canvas class='chart' id='open-count-chart'></canvas>
+	</div>
+	<div class='chart-plus'>
+	  <h3>Hur länge öppna rapporter varit öppna</h3>
+	  <canvas class='chart' id='average-open-time-chart'></canvas>
+	</div>
+      </div>
+
+      <div class='timeseries-section section'>
+	<h2>Tidsserier</h2>
+	<hr class='print-only'/>
+	<form class='screen-only'>
+	  Start:<input type="date" id="timeseries-start-date" onchange="newSelection()"></input>
+	  Slut:<input type="date" id="timeseries-end-date" onchange="newSelection()"></input>
+	</form>
+	<div class='chart-plus'>
+	  <h3>Antal rapporter per månad</h3>
+	  <canvas class='chart' id='reports-created-chart'></canvas>
+	</div>
+	<div class='chart-plus'>
+	  <h3>Antal rapporter per kvartal</h3>
+	  <canvas class='char' id='reports-created-quarterly-chart'></canvas>
+	</div>
+	<div class='chart-plus'>
+	  <h3>Antal rapporter per månad och app</h3>
+	  <canvas class='chart' id='reports-created-per-app-chart'></canvas>
+	</div>
+	<div class='chart-plus'>
+	  <h3>Antal rapporter per kvartal och app</h3>
+	  <canvas class='chart' id='reports-created-quarterly-per-app-chart'></canvas>
+	</div>
+	<div class='chart-plus'>
+	  <h3>Dagar, i genomsnitt, till kommunsvar</h3>
+	  <canvas class='chart' id='response-time-trend-chart'></canvas>
+	  <i>På grund av GDPR anonymiseras kommentarer för gamla rapporter, därmed är det historiska underlaget begränsat</i>
+	</div>
+	<div class='chart-plus'>
+	  <h3>Dagar, i genomsnitt, till lösta rapporter stängdes</h3>
+	  <canvas class='chart' id='solve-time-trend-chart'></canvas>
+	</div>
+      </div>
+    </div>
+  </body>
+</html>
