@@ -6,7 +6,6 @@ database=$2
 
 declare -A bodies
 bodies=( [148]="Ale"
-	 [183]="Alingsås"
 	 [57]="Ekerö"
 	 [238]="Filipstad"
 	 [176]="Forshaga"
