@@ -5,21 +5,23 @@ destination_directory=$1
 database=$2
 
 declare -A bodies
-bodies=( [148]="Ale"
-	 [57]="Ekerö"
-	 [238]="Filipstad"
-	 [176]="Forshaga"
-	 [9]="Hofors"
-	 [229]="Kil"
-	 [271]="Klippan"
-	 [160]="Lessebo"
-	 [185]="Lysekil"
-	 [6]="Ockelbo"
-	 [92]="Skurup"
-	 [39]="Sollentuna"
-	 [84]="Surahammar"
-	 [173]="Östra Göinge"
-       )
+bodies=(
+    [148]="Ale"
+    [183]="Alingsås"
+    [57]="Ekerö"
+    [238]="Filipstad"
+    [176]="Forshaga"
+    [9]="Hofors"
+    [229]="Kil"
+    [271]="Klippan"
+    [160]="Lessebo"
+    [185]="Lysekil"
+    [6]="Ockelbo"
+    [92]="Skurup"
+    [39]="Sollentuna"
+    [84]="Surahammar"
+    [173]="Östra Göinge"
+)
 
 all_file=$(mktemp)
 
