@@ -12,11 +12,11 @@ def main(argv):
     try:
         opts, args = getopt.getopt(argv,"hi:o:f:",["ifile=","ofile=","format="])
     except getopt.GetoptError:
-        print 'csv_json.py -i <path to inputfile> -o <path to outputfile> -f <dump/pretty>'
+        print('csv_json.py -i <path to inputfile> -o <path to outputfile> -f <dump/pretty>')
         sys.exit(2)
     for opt, arg in opts:
         if opt == '-h':
-            print 'csv_json.py -i <path to inputfile> -o <path to outputfile> -f <dump/pretty>'
+            print('csv_json.py -i <path to inputfile> -o <path to outputfile> -f <dump/pretty>')
             sys.exit()
         elif opt in ("-i", "--ifile"):
             input_file = arg
@@ -40,9 +40,9 @@ def read_csv(file, json_file, format):
 def write_json(data, json_file, format):
     with open(json_file, "w") as f:
         if format == "pretty":
-            f.write(json.dumps(data, sort_keys=False, indent=4, separators=(',', ': '),encoding="utf-8",ensure_ascii=False))
+            f.write(json.dumps(data, ensure_ascii=False, indent=4, separators=(',', ': '), sort_keys=False))
         else:
             f.write(json.dumps(data))
 
 if __name__ == "__main__":
-   main(sys.argv[1:])
+    main(sys.argv[1:])
